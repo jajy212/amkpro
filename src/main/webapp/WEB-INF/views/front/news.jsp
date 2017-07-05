@@ -1,0 +1,123 @@
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% request.setAttribute("path", request.getContextPath());%>
+
+    
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<%@ include file="include/meta.jsp"%>
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Webfonts 
+	<link href='http://fonts.useso.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+   
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="${path}/static/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="${path}/static/css/icomoon.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="${path}/static/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="${path}/static/css/owl.theme.default.min.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="${path}/static/css/magnific-popup.css">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="${path}/static/css/style.css">
+	<!-- Modernizr JS -->
+	<script src="${path}/static/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="${path}/static/js/respond.min.js"></script>
+	<![endif]-->
+	</head>
+	<body>	
+	<%@ include file="include/header.jsp"%>
+	<!-- END .header -->
+	
+		<div class="fh5co-spacer-md"></div>
+	
+	<div id="fh5co-main">
+		
+		<!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-md-12">
+                <!--<h1 class="page-header">Two Column Portfolio
+                    <small>Subheading</small>
+                </h1>-->
+                <ol class="breadcrumb">
+                    <li><a href="index.html">首页</a>
+                    </li>
+					<li class="active">新闻动态</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        
+       <!-- /.row -->
+		<div class="fh5co-spacer-sm"></div>
+		
+		<form id="searchForm"  action="${path}/front/news" method="post" >
+			<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
+			<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
+		</form>
+		<!-- Content Row -->
+		<c:forEach var="article" items="${page.list}">
+        <div class="row">
+            <div class="col-md-1 text-center">
+                <p><i class="fa fa-camera fa-4x text-primary"></i>
+                </p>
+                <p>2017.7.1</p>
+            </div>
+            <div class="col-md-4">
+                <a href="blog-post.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/600x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-7">
+                <h3>
+                    <a href="blog-post.html">${article.title }</a>
+                </h3>
+                </p>
+                ${article.description }
+               <!-- <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a>-->
+            </div>
+        </div>
+        <hr>
+        </c:forEach>
+        <!-- /.row -->
+		  <!-- Pagination -->
+		  
+		   <div class="row text-center">
+            <div class="col-lg-12">
+               ${page}
+            </div>
+        </div>
+		  
+        
+    </div>
+    <!-- /.container -->
+	</div>
+	
+
+	<%@ include file="include/footer.jsp"%>	
+	<script type="text/javascript">
+	
+	function page(n,s){
+		$("#pageNo").val(n);
+		$("#pageSize").val(s);
+		$("#searchForm").submit();
+    	return false;
+    }
+	</script>
+	
+	</body>
+</html>
