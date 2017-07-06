@@ -166,7 +166,7 @@
 				</script>
 			</div>
 		</div>
-		<div class="control-group">
+		<!--  <div class="control-group">
 			<label class="control-label">是否允许评论:</label>
 			<div class="controls">
 				<form:radiobuttons path="articleData.allowComment" items="${fns:getDictList('yes_no')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
@@ -177,7 +177,7 @@
 			<div class="controls">
 				<form:checkboxes path="posidList" items="${fns:getDictList('cms_posid')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
 			</div>
-		</div>
+		</div>-->
 		<div class="control-group">
 			<label class="control-label">发布时间:</label>
 			<div class="controls">
@@ -215,7 +215,7 @@
             </div>
 		</shiro:hasPermission>
 		<c:if test="${not empty article.id}">
-			<div class="control-group">
+		<!--  	<div class="control-group">
 				<label class="control-label">查看评论:</label>
 				<div class="controls">
 					<input id="btnComment" class="btn" type="button" value="查看评论" onclick="viewComment('${ctx}/cms/comment/?module=article&contentId=${article.id}&status=0')"/>
@@ -233,7 +233,7 @@
 						}
 					</script>
 				</div>
-			</div>
+			</div>-->
 		</c:if>
 		<div class="form-actions">
 			<shiro:hasPermission name="cms:article:edit"><input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;</shiro:hasPermission>

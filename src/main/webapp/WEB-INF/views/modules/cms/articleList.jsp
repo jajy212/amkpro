@@ -40,18 +40,18 @@
 	</form:form>
 	<sys:message content="${message}"/>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th>栏目</th><th>标题</th><th>权重</th><th>点击数</th><th>发布者</th><th>更新时间</th><th>操作</th></tr></thead>
+		<thead><tr><th>栏目</th><th>标题</th><th>权重</th><!--  <th>点击数</th>--><th>发布者</th><th>更新时间</th><th>操作</th></tr></thead>
 		<tbody>
 		<c:forEach items="${page.list}" var="article">
 			<tr>
 				<td><a href="javascript:" onclick="$('#categoryId').val('${article.category.id}');$('#categoryName').val('${article.category.name}');$('#searchForm').submit();return false;">${article.category.name}</a></td>
 				<td><a href="${ctx}/cms/article/form?id=${article.id}" title="${article.title}">${fns:abbr(article.title,40)}</a></td>
 				<td>${article.weight}</td>
-				<td>${article.hits}</td>
+				<!--  <td>${article.hits}</td>-->
 				<td>${article.user.name}</td>
 				<td><fmt:formatDate value="${article.updateDate}" type="both"/></td>
 				<td>
-					<a href="${pageContext.request.contextPath}${fns:getFrontPath()}/view-${article.category.id}-${article.id}${fns:getUrlSuffix()}" target="_blank">访问</a>
+					<!--  <a href="${pageContext.request.contextPath}${fns:getFrontPath()}/view-${article.category.id}-${article.id}${fns:getUrlSuffix()}" target="_blank">访问</a>-->
 					<shiro:hasPermission name="cms:article:edit">
 						<c:if test="${article.category.allowComment eq '1'}"><shiro:hasPermission name="cms:comment:view">
 							<a href="${ctx}/cms/comment/?module=article&contentId=${article.id}&delFlag=2" onclick="return viewComment(this.href);">评论</a>
