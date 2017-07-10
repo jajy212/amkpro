@@ -1,5 +1,8 @@
 package com.thinkgem.jeesite.modules.cms.web;
 
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +16,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.thinkgem.jeesite.common.config.Global;
 import com.thinkgem.jeesite.common.persistence.Page;
+import com.thinkgem.jeesite.common.utils.FileUtils;
 import com.thinkgem.jeesite.common.web.BaseController;
 import com.thinkgem.jeesite.modules.cms.entity.Article;
 import com.thinkgem.jeesite.modules.cms.entity.ArticleData;
@@ -75,6 +80,15 @@ public class ManagerAction  extends BaseController{
 	public String download(ModelMap model){
 		return "/front/download";
 	}
+	@RequestMapping("/front/downfile")
+	public void downfile(@RequestParam(required=false) String param,HttpServletRequest request, HttpServletResponse response) throws Exception{
+		if(!"".equals(param)){
+			String filepath = Global.getConfig("filepath");
+			String newName = Global.getConfig("filename."+param);
+			File file = new File(filepath+param);
+			FileUtils.downFile(file, request, response,newName);
+		}
+	}
 	
 	@RequestMapping("/front/faq")
 	public String faq(ModelMap model){
@@ -120,6 +134,24 @@ public class ManagerAction  extends BaseController{
 		
 		return "/front/news";
 	}
+	
+	@RequestMapping("/front/detail")
+	public String newsdetail(ModelMap model,@RequestParam(required=false) String param){
+		System.out.println("article id is =="+param);
+		if(StringUtils.isNotBlank(param)){
+			Article article = articleService.get(param);
+			ArticleData articleData = articleDataService.get(param);
+			model.addAttribute("article", article);
+			for(String img :article.getImageArr()){
+				System.out.println(img);
+			}
+			model.addAttribute("articleData", articleData);
+		}
+		
+		
+		return "/front/newsdetail";
+	}
+	
 	
 	@RequestMapping("/front/products")
 	public String products(ModelMap model,@RequestParam(required=false) String param){

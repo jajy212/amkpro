@@ -108,6 +108,12 @@ public class ArticleController extends BaseController {
 		if (!beanValidator(model, article)){
 			return form(article, model);
 		}
+		String images = article.getImage();
+		if(!"".equals(images) && images.charAt(0)== '|'){
+			article.setImage(images.substring(1));
+		}
+		
+		
 		articleService.save(article);
 		addMessage(redirectAttributes, "保存文章'" + StringUtils.abbr(article.getTitle(),50) + "'成功");
 		String categoryId = article.getCategory()!=null?article.getCategory().getId():null;

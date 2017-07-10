@@ -14,27 +14,6 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<!-- Google Webfonts 
-	<link href='http://fonts.useso.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
-   
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="${path}/static/css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="${path}/static/css/icomoon.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="${path}/static/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="${path}/static/css/owl.theme.default.min.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="${path}/static/css/magnific-popup.css">
-	<!-- Theme Style -->
-	<link rel="stylesheet" href="${path}/static/css/style.css">
-	<!-- Modernizr JS -->
-	<script src="${path}/static/js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="${path}/static/js/respond.min.js"></script>
-	<![endif]-->
 	</head>
 	<body>	
 	<%@ include file="include/header.jsp"%>
@@ -78,13 +57,13 @@
                 <p>2017.7.1</p>
             </div>
             <div class="col-md-4">
-                <a href="blog-post.html">
+                <a href="${path}/front/detail?param=${article.id}">
                     <img class="img-responsive img-hover" src="http://placehold.it/600x300" alt="">
                 </a>
             </div>
             <div class="col-md-7">
                 <h3>
-                    <a href="blog-post.html">${article.title }</a>
+                    <a href="${path}/front/detail?param=${article.id}">${article.title }</a>
                 </h3>
                 </p>
                 ${article.description }

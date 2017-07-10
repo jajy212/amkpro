@@ -236,11 +236,11 @@ public class Article extends DataEntity<Article> {
    	public String getImageSrc() {
         return CmsUtils.formatImageSrcToWeb(this.image);
    	}
-
+   	
 	public List<String> getImageArr() {
 		List<String> list = new ArrayList<String>(); 
 		String[] arr = this.getImage().split("\\|");
-		for(int i=1;i<arr.length;i++){
+		for(int i=0;i<arr.length;i++){
 			list.add(arr[i]);
 		}
 		return list;

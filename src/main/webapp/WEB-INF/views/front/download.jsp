@@ -11,30 +11,7 @@
 	<head>
 	<%@ include file="include/meta.jsp"%>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
 
-	<!-- Google Webfonts 
-	<link href='http://fonts.useso.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
-   
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="${path}/static/css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="${path}/static/css/icomoon.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="${path}/static/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="${path}/static/css/owl.theme.default.min.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="${path}/static/css/magnific-popup.css">
-	<!-- Theme Style -->
-	<link rel="stylesheet" href="${path}/static/css/style.css">
-	<!-- Modernizr JS -->
-	<script src="${path}/static/js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="${path}/static/js/respond.min.js"></script>
-	<![endif]-->
 
 	</head>
 	<body>	
@@ -68,14 +45,14 @@
 		<!-- Content Row -->
         <div class="row">
             <div class="col-md-push-3 col-md-6">
-                <a href="###">艾明坷产品手册 （手套箱、溶剂净化系统等）</a>
+                <a href="${path}/front/downfile?param=file1.docx">艾明坷产品手册 （手套箱、溶剂净化系统等）</a>
 				<p>发布日期：2017-01-01   下载次数：100</p>
             </div>
         </div>
 		<hr>
 		<div class="row">
             <div class="col-md-push-3 col-md-6">
-                <a href="###">溶剂参数表</a>
+                <a href="${path}/front/downfile?param=file2.docx">溶剂参数表</a>
 				<p>发布日期：2017-01-01   下载次数：100</p>	
 				<p></p>				
             </div>
@@ -83,7 +60,7 @@
 		<hr>
 		<div class="row">
             <div class="col-md-push-3 col-md-6">
-                <a href="###">有机实验室常用仪器与使用</a>
+                <a href="${path}/front/downfile?param=file3.docx">有机实验室常用仪器与使用</a>
 				<p>发布日期：2017-01-01   下载次数：100</p>		
 				<p></p>
             </div>
@@ -91,7 +68,7 @@
 		<hr>
 		<div class="row">
             <div class="col-md-push-3 col-md-6">
-                <a href="###">EX-SPS5-800溶剂净化系统</a>
+                <a href="${path}/front/downfile?param=file4.docx">EX-SPS5-800溶剂净化系统</a>
 				
 				<p>发布日期：2017-01-01   下载次数：100</p>
             </div>
@@ -103,7 +80,14 @@
     </div>
     <!-- /.container -->
 	</div>
+	<script type="text/javascript">
 	
+		function test(param){
+			
+			$.post("${path}/front/downfile?param="+param);
+			
+		}
+	</script>
 
 	<%@ include file="include/footer.jsp"%>	
 

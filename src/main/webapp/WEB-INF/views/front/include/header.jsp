@@ -1,44 +1,31 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib  prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
-	
+<%@ taglib  prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>   
+<!--[if lte IE 9]> 
+	<style type="text/css">
+	.ieTip{
+			position: absolute;
+		    left: 58px;
+		    top: 37px;
+		    z-index: 9999;
+		    color: red;
+		    font-size: larger;}
+	</style>
+<![endif]-->
+ 
+	<div class="ieTip">为获得更好的用户体验，请使用IE9以上版本或最新版谷歌浏览器。</div>
 	<header id="fh5co-header" role="banner">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header"> 
 				<!-- Mobile Toggle Menu Button -->
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-				<a class="navbar-brand" href="index.dhtml">艾明坷科技</a>
+				<a class="navbar-brand" href="index">艾明坷科技</a>
 				</div>
 				<div id="fh5co-navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="index.dhtml"><span>首页<span class="border"></span></span></a></li>
-										
-					<%-- 
-						<c:forEach items="${lms}" var="itm" varStatus="status">
-							<li <c:if test="${status.index==fn:length(lms)-1}">style="background:none"</c:if>>
-								<a href="${!empty(itm.url)?(itm.url):'javascript:'}" <c:if test="${fn:length(itm.zlm)>0}">class="dropdown-toggle" data-toggle="dropdown"</c:if>>
-									${itm.name}
-									<c:if test="${fn:length(itm.zlm)>0}"><b class="caret"></b></c:if>
-								</a>
-								<c:if test="${fn:length(itm.zlm)>0}">
-									<ul class="dropdown-menu">
-										<c:forEach items="${itm.zlm}" var="itm1" varStatus="status1">
-											<li>
-												<a href="${!empty(itm1.url)?(itm1.url):'javascript:'}">
-													${itm1.name}
-												</a>
-											</li>
-										</c:forEach>
-									</ul>
-								</c:if>
-							</li>
-						</c:forEach>
-					--%>
-										
-										
-										
+						<li class="active"><a href="index"><span>首页<span class="border"></span></span></a></li>
 										
 				  	<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
