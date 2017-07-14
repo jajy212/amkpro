@@ -198,7 +198,6 @@
 
 	
 	$(function(){
-		
 		burgerMenu();
 		owlCrouselFeatureSlide();
 		magnifPopup();
