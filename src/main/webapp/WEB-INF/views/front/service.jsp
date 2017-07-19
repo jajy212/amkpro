@@ -59,6 +59,7 @@
                 <div class="media">
                     <div class="pull-left">
                         <span class="fa-stack fa-2x">
+                        	
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
                               <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
                         </span> 

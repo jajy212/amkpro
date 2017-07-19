@@ -11,8 +11,6 @@
 	<head>
 	<%@ include file="include/meta.jsp"%>
 
-	
-
 	</head>
 	<body>	
 	<%@ include file="include/header.jsp"%>
@@ -28,14 +26,11 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-md-12">
-                <!--<h1 class="page-header">Two Column Portfolio
-                    <small>Subheading</small>
-                </h1>-->
                 <ol class="breadcrumb">
                     <li><a href="index.html">首页</a>
                     </li>
 					<li>产品中心</li>
-                    <li class="active">超级净化手套箱</li>
+                    <li class="active">${article.title }</li>
                 </ol>
             </div>
         </div>
@@ -68,7 +63,6 @@
 	                            <img class="img-responsive" src=${img } alt=""/>
 	                        </div>
 				        </c:forEach>
-                       
                     </div>
 
                     <!-- Controls -->
@@ -92,19 +86,14 @@
                     <li>APEX(2400/780)	APEX(2400/1000)	APEX(2400/1200)</li>
                 </ul>-->
             </div>
-
-        </div>
         </div>
         <!-- /.row -->
-
-        <!-- /.row -->
+     </div>
 
     </div>
     <!-- /.container -->
-	
 
 	<%@ include file="include/footer.jsp"%>	
-
 	
 	</body>
 </html>

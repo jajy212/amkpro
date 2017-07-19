@@ -1,7 +1,8 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib  prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>   
+<%@ taglib  prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!--[if lte IE 9]> 
 	<style type="text/css">
 	.ieTip{
@@ -47,6 +48,9 @@
                             </li>
                             <li>
                                 <a href="products?param=gwl">高温炉</a>
+                            </li>
+                            <li>
+                                <a href="products?param=he">核应用</a>
                             </li>
                         </ul>
 					</li>

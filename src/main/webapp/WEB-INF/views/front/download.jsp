@@ -11,26 +11,18 @@
 	<head>
 	<%@ include file="include/meta.jsp"%>
 
-
-
 	</head>
 	<body>	
 	<%@ include file="include/header.jsp"%>
 	<!-- END .header -->
-	
-		<div class="fh5co-spacer-md"></div>
-	
+	<div class="fh5co-spacer-md"></div>
 	<div id="fh5co-main">
-		
-		<!-- Page Content -->
+	<!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-md-12">
-                <!--<h1 class="page-header">Two Column Portfolio
-                    <small>Subheading</small>
-                </h1>-->
                 <ol class="breadcrumb">
                     <li><a href="index.html">首页</a>
                     </li>
@@ -43,6 +35,17 @@
         <!-- /.row -->
 		<div class="fh5co-spacer-sm"></div>
 		<!-- Content Row -->
+		<c:forEach items="${list }" var="article">
+			<div class="row">
+	            <div class="col-md-push-3 col-md-6">
+	              	<a href="${path}/front/downfile?param=${ article.description}">${article.title }</a>
+					<p>发布日期：<fmt:formatDate value="${article.updateDate }" pattern="yyyy-MM-dd"/> &nbsp;&nbsp;&nbsp; 下载次数：${article.hits }</p>
+	            </div>
+	        </div>
+			<hr>
+		</c:forEach>
+		
+		<!--  
         <div class="row">
             <div class="col-md-push-3 col-md-6">
                 <a href="${path}/front/downfile?param=file1.docx">艾明坷产品手册 （手套箱、溶剂净化系统等）</a>
@@ -72,25 +75,14 @@
 				
 				<p>发布日期：2017-01-01   下载次数：100</p>
             </div>
-        </div>
+        </div>-->
         <!-- /.row -->
-        
- 
-
+		
     </div>
     <!-- /.container -->
 	</div>
-	<script type="text/javascript">
-	
-		function test(param){
-			
-			$.post("${path}/front/downfile?param="+param);
-			
-		}
-	</script>
 
 	<%@ include file="include/footer.jsp"%>	
-
 	
 	</body>
 </html>

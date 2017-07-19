@@ -11,18 +11,14 @@
 	<head>
 	<%@ include file="include/meta.jsp"%>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
-
 	</head>
 	<body>	
 	<%@ include file="include/header.jsp"%>
 	<!-- END .header -->
 	
-		<div class="fh5co-spacer-md"></div>
+	<div class="fh5co-spacer-md"></div>
 	
 	<div id="fh5co-main">
-		
 		<!-- Page Content -->
     <div class="container">
 
@@ -54,7 +50,7 @@
             <div class="col-md-1 text-center">
                 <p><i class="fa fa-camera fa-4x text-primary"></i>
                 </p>
-                <p>2017.7.1</p>
+                <p><fmt:value="${article.updateDate }" pattern="yyyy-MM-dd"/></p>
             </div>
             <div class="col-md-4">
                 <a href="${path}/front/detail?param=${article.id}">

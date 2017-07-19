@@ -21,66 +21,25 @@
 	<!-- END .header -->
 	<div class="fh5co-slider">
 		<div class="owl-carousel owl-carousel-fullwidth">
-		    <div class="item" style="background-image:url(${path}/static/img/slide_1.jpg)">
-		    	<div class="fh5co-overlay"></div>
-		    	<div class="container">
-		    		<div class="row">
-		    			<div class="col-md-8 col-md-offset-2">
-			    			<div class="fh5co-owl-text-wrap">
-						    	<div class="fh5co-owl-text text-center to-animate">
-						    		<h1 class="fh5co-lead">EXCEL超越系列</h1>
-									<h2 class="fh5co-sub-lead">EXCEL超越系列是一款高效、易用的手套箱系统，富于高品质的设计，可适用于多领域对惰性气氛保护的不同技术需求</h2>
-						    	</div>
+		
+			<c:forEach items="${list }" var="article" begin="0" end="4">
+				<div class="item" style="background-image:url(${path}${article.image })">
+		    	  <div class="fh5co-overlay"></div>
+			    	<div class="container">
+			    		<div class="row">
+			    			<div class="col-md-8 col-md-offset-2">
+				    			<div class="fh5co-owl-text-wrap">
+							    	<div class="fh5co-owl-text text-center to-animate">
+							    		<h1 class="fh5co-lead">${article.title }</h1>
+										<h2 class="fh5co-sub-lead">${article.description }</h2>
+							    	</div>
+							    </div>
 						    </div>
-					    </div>
-		    		</div>
-		    	</div>
-		    </div>
-		    <div class="item" style="background-image:url(${path}/static/img/slide_2.jpg)">
-		    	<div class="fh5co-overlay"></div>
-		    	<div class="container">
-		    		<div class="row">
-		    			<div class="col-md-8 col-md-offset-2">
-			    			<div class="fh5co-owl-text-wrap">
-						    	<div class="fh5co-owl-text text-center to-animate">
-						    		<h1 class="fh5co-lead">溶剂净化系统</h1>
-									<h2 class="fh5co-sub-lead">桌面型溶剂净化系统，模块化设计，每组净化能力800L,容易实现多组组合</h2>
-						    	</div>
-						    </div>
-					    </div>
-		    		</div>
-		    	</div>
-		    </div>
-		    <div class="item" style="background-image:url(${path}/static/img/slide_3.jpg)">
-		    	<div class="fh5co-overlay"></div>
-		    	<div class="container">
-		    		<div class="row">
-		    			<div class="col-md-8 col-md-offset-2">
-			    			<div class="fh5co-owl-text-wrap">
-						    	<div class="fh5co-owl-text text-center to-animate">
-						    		<h1 class="fh5co-lead">SMART灵智系列</h1>
-									<h2 class="fh5co-sub-lead">针对大多数客户的基本需求而设计出的一套高性能、经济实用的手套箱系统，可满足实验室等工作场所对惰性气氛保护的基本技术需求</h2>
-						    	</div>
-						    </div>
-					    </div>
-		    		</div>
-		    	</div>
-		    </div>
-		    <div class="item" style="background-image:url(${path}/static/img/slide_4.jpg)">
-		    	<div class="fh5co-overlay"></div>
-		    	<div class="container">
-		    		<div class="row">
-		    			<div class="col-md-8 col-md-offset-2">
-			    			<div class="fh5co-owl-text-wrap">
-						    	<div class="fh5co-owl-text text-center to-animate">
-						    		<h1 class="fh5co-lead">SMART灵智系列</h1>
-									<h2 class="fh5co-sub-lead">针对大多数客户的基本需求而设计出的一套高性能、经济实用的手套箱系统，可满足实验室等工作场所对惰性气氛保护的基本技术需求</h2>
-						    	</div>
-						    </div>
-					    </div>
-		    		</div>
-		    	</div>
-		    </div>
+			    		</div>
+			    	</div>
+			    </div>
+			</c:forEach>
+			
 		</div>
 	</div>	
 	<div id="fh5co-main">
@@ -99,22 +58,22 @@
 					<div class="col-md-4 col-sm-4 fh5co-feature-border">
 						<div class="fh5co-feature">
 							<div class="fh5co-feature-icon to-animate">
-								<i class="icon-funnel"></i>
+								<i class="icon-box"></i>
 							</div>
 							<div class="fh5co-feature-text">
 								<h3>超级净化手套箱</h3>
 								<p>主要应用：核电、防御等，医药半导体和手套等</p>
-								<p><a href="#">更多>></a></p>
+								<p><a href="${path }/front/products?param=stx">更多>></a></p>
 							</div>
 						</div>
 						<div class="fh5co-feature no-border">
 							<div class="fh5co-feature-icon to-animate">
-								<i class="icon-lifebuoy"></i>
+								<i class="icon-lab-flask"></i>
 							</div>
 							<div class="fh5co-feature-text">
 								<h3>溶剂净化系统</h3>
 								<p>桌面型溶剂净化系统，模块化设计，每组净化</p>
-								<p><a href="#">更多>></a></p>
+								<p><a href="${path }/front/products?param=rj">更多>></a></p>
 							</div>
 						</div>
 					</div>
@@ -126,48 +85,49 @@
 							<div class="fh5co-feature-text">
 								<h3>气体净化系统</h3>
 								<p>主要应用：核电、防御等，医药半导体和手套等</p>
-								<p><a href="#">更多>></a></p>
+								<p><a href="${path }/front/products?param=qt">更多>></a></p>
 							</div>
 						</div>
 						<div class="fh5co-feature no-border">
 							<div class="fh5co-feature-icon to-animate">
-								<i class="icon-lifebuoy"></i>
+								<i class="icon-direction"></i>
 							</div>
 							<div class="fh5co-feature-text">
 								<h3>高纯供气系统</h3>
 								<p>桌面型溶剂净化系统，模块化设计，每组净化</p>
-								<p><a href="#">更多>></a></p>
+								<p><a href="${path }/front/products?param=gq">更多>></a></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4">
 						<div class="fh5co-feature">
 							<div class="fh5co-feature-icon to-animate">
-								<i class="icon-lab-flask"></i>
+								<i class="icon-yelp"></i>
 							</div>
 							<div class="fh5co-feature-text">
 								<h3>真空镀膜系统</h3>
 								<p>应用于实验室研究级别，晶片或粉末腔体可供选择</p>
-								<p><a href="#">更多>></a></p>
+								<p><a href="${path }/front/products?param=zk">更多>></a></p>
 							</div>
 						</div>
 						<div class="fh5co-feature no-border">
 							<div class="fh5co-feature-icon to-animate">
-								<i class="icon-line-graph"></i>
+								<i class="icon-thermometer"></i>
 							</div>
 							<div class="fh5co-feature-text">
 								<h3>高温炉</h3>
 								<p>应用于实验室研究级别，晶片或粉末腔体可供选择应用于实验室研究级别</p>
-								<p><a href="#">更多>></a></p>
+								<p><a href="${path }/front/products?param=gwl">更多>></a></p>
 							</div>
 						</div>
+					</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- Features -->
 
-		<!-- Products -->
+		<!-- custom image -->
 		<div id="fh5co-clients">
 			<div class="container">
 				<div class="row">
@@ -188,18 +148,15 @@
 						<div class="fh5co-hero-wrap">
 							<div class="fh5co-hero-intro text-center">
 								<h1 class="fh5co-lead"><span class="quo">&ldquo;</span>为客户提供高质量和最大价值的专业化产品和服务，以真诚和实力赢得客户的理解、尊重和支持。 <span class="quo">&rdquo;</span></h1>
-							
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
 
 <%@ include file="include/footer.jsp"%>	
-
 	
 	</body>
 </html>

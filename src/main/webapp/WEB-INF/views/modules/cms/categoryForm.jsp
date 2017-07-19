@@ -62,13 +62,15 @@
 				<form:input path="name" htmlEscape="false" maxlength="50" class="required"/>
 			</div>
 		</div>
+		
 		<div class="control-group">
-			<label class="control-label">缩略图:</label>
+			<label class="control-label">栏目关键字:</label>
 			<div class="controls">
-				<form:hidden path="image" htmlEscape="false" maxlength="255" class="input-xlarge"/>
-				<sys:ckfinder input="image" type="thumb" uploadPath="/cms/category"/>
+				<form:input path="keywords" htmlEscape="false" maxlength="200"/>
+				<span class="help-inline">用于查找该栏目下所属内容的查找</span>
 			</div>
 		</div>
+	
 		<div class="control-group">
 			<label class="control-label">链接:</label>
 			<div class="controls">
@@ -89,13 +91,7 @@
 				<form:textarea path="description" htmlEscape="false" rows="4" maxlength="200" class="input-xxlarge"/>
 			</div>
 		</div>
-		<div class="control-group">
-			<label class="control-label">关键字:</label>
-			<div class="controls">
-				<form:input path="keywords" htmlEscape="false" maxlength="200"/>
-				<span class="help-inline">填写描述及关键字，有助于搜索引擎优化</span>
-			</div>
-		</div>
+		
 		<div class="control-group">
 			<label class="control-label">排序:</label>
 			<div class="controls">
@@ -137,26 +133,6 @@
 			<label class="control-label">是否需要审核:</label>
 			<div class="controls">
 				<form:radiobuttons path="isAudit" items="${fns:getDictList('yes_no')}" itemLabel="label" itemValue="value" htmlEscape="false"/>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">自定义列表视图:</label>
-			<div class="controls">
-                <form:select path="customListView">
-                    <form:option value="" label="默认视图"/>
-                    <form:options items="${listViewList}" htmlEscape="false"/>
-                </form:select>
-                <span class="help-inline">自定义列表视图名称必须以"${category_DEFAULT_TEMPLATE}"开始</span>
-			</div>
-		</div>
-		<div class="control-group">
-			<label class="control-label">自定义内容视图:</label>
-			<div class="controls">
-                <form:select path="customContentView">
-                    <form:option value="" label="默认视图"/>
-                    <form:options items="${contentViewList}" htmlEscape="false"/>
-                </form:select>
-                <span class="help-inline">自定义内容视图名称必须以"${article_DEFAULT_TEMPLATE}"开始</span>
 			</div>
 		</div>
 		<div class="control-group">

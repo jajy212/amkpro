@@ -10,7 +10,6 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<%@ include file="include/meta.jsp"%>
-
 	
 	</head>
 	<body>	

@@ -239,7 +239,7 @@ public class Article extends DataEntity<Article> {
    	
 	public List<String> getImageArr() {
 		List<String> list = new ArrayList<String>(); 
-		String[] arr = this.getImage().split("\\|");
+		String[] arr = this.getImage().split("#");
 		for(int i=0;i<arr.length;i++){
 			list.add(arr[i]);
 		}

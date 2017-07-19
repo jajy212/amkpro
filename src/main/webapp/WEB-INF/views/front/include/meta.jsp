@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="${path}/static/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="${path}/static/css/icomoon.css">
+	<link rel="stylesheet" href="${path}/static/css/font-awesome/css/font-awesome.css">
 	<!-- Owl Carousel -->
 	<link rel="stylesheet" href="${path}/static/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="${path}/static/css/owl.theme.default.min.css">
@@ -29,3 +30,6 @@
 	<!--[if lt IE 9]>
 	<script src="${path}/static/js/respond.min.js"></script>
 	<![endif]-->
+	
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
