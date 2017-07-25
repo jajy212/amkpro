@@ -46,9 +46,24 @@
                 <img class="img-responsive" src="http://placehold.it/750x450" alt="">
             </div>
             <div class="col-md-7">
-                <h2 class="text-primary"><!--  艾明坷科技（北京）有限公司-->${article.title }</h2>
-                
-                ${articleData.content }
+                <h2 class="text-primary"><!--  艾明坷科技（北京）有限公司-->
+                	<c:choose>
+		    			<c:when test="${langType eq 'en'}">
+		    				${article.titleEn }
+		    			</c:when>
+		    			<c:otherwise>
+		    				${article.title }
+		    			</c:otherwise>
+		    		</c:choose>
+               </h2>
+                <c:choose>
+			    			<c:when test="${langType eq 'en'}">
+			    				${articleData.contentEn }
+			    			</c:when>
+			    			<c:otherwise>
+			    				${articleData.content }
+			    			</c:otherwise>
+			    		</c:choose>
                 <!--  
                 <p>公司位于北京宋庄工业园区，专业从事高端科研仪器设备的研发、设计、制造和销售。</p>
                 <p>结构良好的技术团队是公司的核心竞争优势，能够为客户不断提供创新的技术支持方案，满足不同领域、不同客户的需求。能把普通的金属敲打成震惊世界的科技奇迹是我们企业永恒的追求。</p>

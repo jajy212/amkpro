@@ -29,11 +29,13 @@ public class Article extends DataEntity<Article> {
 	private static final long serialVersionUID = 1L;
 	private Category category;// 分类编号
 	private String title;	// 标题
+	private String titleEn;	// 标题(英文)
     private String link;	// 外部链接
 	private String color;	// 标题颜色（red：红色；green：绿色；blue：蓝色；yellow：黄色；orange：橙色）
 	private String image;	// 文章图片
 	private String keywords;// 关键字
 	private String description;// 描述、摘要
+	private String descriptionEn;// 描述、摘要(英文)
 	private Integer weight;	// 权重，越大越靠前
 	private Date weightDate;// 权重期限，超过期限，将weight设置为0
 	private Integer hits;	// 点击数
@@ -244,6 +246,22 @@ public class Article extends DataEntity<Article> {
 			list.add(arr[i]);
 		}
 		return list;
+	}
+
+	public String getTitleEn() {
+		return titleEn;
+	}
+
+	public void setTitleEn(String titleEn) {
+		this.titleEn = titleEn;
+	}
+
+	public String getDescriptionEn() {
+		return descriptionEn;
+	}
+
+	public void setDescriptionEn(String descriptionEn) {
+		this.descriptionEn = descriptionEn;
 	}
 	
 }

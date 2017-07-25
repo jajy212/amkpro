@@ -79,7 +79,7 @@
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
 	
 	<!-- 定义无Controller的path<->view直接映射 -->
-	<mvc:view-controller path="/" view-name="redirect:${web.view.index}"/>
+	<!--  <mvc:view-controller path="/" view-name="redirect:${web.view.index}"/>-->
 	
 	<!-- 拦截器配置，拦截顺序：先执行后定义的，排在第一位的最后执行。-->
 	<mvc:interceptors>
@@ -97,7 +97,20 @@
 			<mvc:mapping path="/**" />
 			<bean class="com.thinkgem.jeesite.modules.sys.interceptor.MobileInterceptor" />
 		</mvc:interceptor> -->
+		
+		 <!--国际化资源切换（根据请求参数中的locale参数自动切换）-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <ref bean="localeChangeInterceptor"/>
+        </mvc:interceptor>
 	</mvc:interceptors>
+	
+		<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+	    
+	    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="defaultLocale" value="zh_CN"/>
+        <property name="cookieName" value="locale"/>
+    	</bean>
 	
 	<!-- 支持Shiro对Controller的方法级AOP安全控制 begin-->
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">

@@ -50,7 +50,7 @@
             <div class="col-md-1 text-center">
                 <p><i class="fa fa-camera fa-4x text-primary"></i>
                 </p>
-                <p><fmt:value="${article.updateDate }" pattern="yyyy-MM-dd"/></p>
+                <p><fmt:formatDate value="${article.updateDate }" pattern="yyyy-MM-dd"/></p>
             </div>
             <div class="col-md-4">
                 <a href="${path}/front/detail?param=${article.id}">
@@ -59,10 +59,26 @@
             </div>
             <div class="col-md-7">
                 <h3>
-                    <a href="${path}/front/detail?param=${article.id}">${article.title }</a>
+                    <a href="${path}/front/detail?param=${article.id}">
+                    	<c:choose>
+			    			<c:when test="${langType eq 'en'}">
+			    				${article.titleEn }
+			    			</c:when>
+			    			<c:otherwise>
+			    				${article.title }
+			    			</c:otherwise>
+			    		</c:choose>
+                    </a>
                 </h3>
                 </p>
-                ${article.description }
+                <c:choose>
+	    			<c:when test="${langType eq 'en'}">
+	    				${article.descriptionEn }
+	    			</c:when>
+	    			<c:otherwise>
+	    				${article.description }
+	    			</c:otherwise>
+	    		</c:choose>
                <!-- <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a>-->
             </div>
         </div>

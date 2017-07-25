@@ -18,7 +18,10 @@
                         top.$.jBox.tip('请选择归属栏目','warning');
                     }else if (CKEDITOR.instances.content.getData()=="" && $("#link").val().trim()==""){
                         top.$.jBox.tip('请填写正文','warning');
-                    }else{
+                    }else if (CKEDITOR.instances.content2.getData()=="" && $("#link").val().trim()==""){
+                        top.$.jBox.tip('请填写正文(英文)','warning');
+                    }
+                    else{
                         loading('正在提交，请稍等...');
                         form.submit();
                     }
@@ -57,6 +60,12 @@
 				<form:input path="title" htmlEscape="false" maxlength="200" class="input-xxlarge measure-input required"/>
 			</div>
 		</div>
+		<div class="control-group">
+			<label class="control-label">标题（英文）:</label>
+			<div class="controls">
+				<form:input path="titleEn" htmlEscape="false" maxlength="200" class="input-xxlarge measure-input required"/>
+			</div>
+		</div>
         <div id="linkBody" class="control-group" style="display:none">
             <label class="control-label">外部链接:</label>
             <div class="controls">
@@ -84,6 +93,12 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label class="control-label">摘要（英文）:</label>
+			<div class="controls">
+				<form:textarea path="descriptionEn" htmlEscape="false" rows="4" maxlength="200" class="input-xxlarge"/>
+			</div>
+		</div>
+		<div class="control-group">
 			<label class="control-label">图片地址:</label>
 			<div class="controls">
 				<form:textarea path="image" htmlEscape="false" rows="5" maxlength="200" class="input-xxlarge"/>
@@ -97,6 +112,16 @@
 				<sys:ckeditor replace="content" uploadPath="/cms/article" />
 			</div>
 		</div>
+		
+		
+		<div class="control-group">
+			<label class="control-label">正文（英文）:</label>
+			<div class="controls">
+				<form:textarea id="content2" htmlEscape="true" path="articleData.contentEn" rows="4" maxlength="200" class="input-xxlarge"/>
+				<sys:ckeditor replace="content2" uploadPath="/cms/article" />
+			</div>
+		</div>
+		
 	
 		<div class="control-group">
 			<label class="control-label">发布时间:</label>

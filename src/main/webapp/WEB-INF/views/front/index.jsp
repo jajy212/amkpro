@@ -30,8 +30,27 @@
 			    			<div class="col-md-8 col-md-offset-2">
 				    			<div class="fh5co-owl-text-wrap">
 							    	<div class="fh5co-owl-text text-center to-animate">
-							    		<h1 class="fh5co-lead">${article.title }</h1>
-										<h2 class="fh5co-sub-lead">${article.description }</h2>
+							    		<h1 class="fh5co-lead">
+							    		<c:choose>
+							    			<c:when test="${langType eq 'en'}">
+							    				${article.titleEn }
+							    			</c:when>
+							    			<c:otherwise>
+							    				${article.title }
+							    			</c:otherwise>
+							    		</c:choose>
+							    		
+							    		</h1>
+										<h2 class="fh5co-sub-lead">
+											<c:choose>
+								    			<c:when test="${langType eq 'en'}">
+								    				${article.descriptionEn }
+								    			</c:when>
+								    			<c:otherwise>
+								    				${article.description }
+								    			</c:otherwise>
+								    		</c:choose>
+										</h2>
 							    	</div>
 							    </div>
 						    </div>
@@ -47,10 +66,10 @@
 
 		<div id="fh5co-features">
 			<div class="container">
-				<div class="row text-center">
+				<div class="row text-left">
 					<div class="col-md-8 col-md-offset-2">
-						<h2 class="fh5co-section-lead">专业从事高端科研仪器设备的研发、设计、制造和销售</h2>
-						<h3 class="fh5co-section-sub-lead">结构良好的技术团队是公司的核心竞争优势，能够为客户不断提供创新的技术支持方案，满足不同领域、不同客户的需求。能把普通的金属敲打成震惊世界的科技奇迹是我们企业永恒的追求</h3>
+						<h2 class="fh5co-section-lead"><spring:message code="index.infotitle"/></h2>
+						<h3 class="fh5co-section-sub-lead"><spring:message code="index.info"/></h3>
 					</div>
 					<div class="fh5co-spacer fh5co-spacer-md"></div>
 				</div>
@@ -147,7 +166,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<div class="fh5co-hero-wrap">
 							<div class="fh5co-hero-intro text-center">
-								<h1 class="fh5co-lead"><span class="quo">&ldquo;</span>为客户提供高质量和最大价值的专业化产品和服务，以真诚和实力赢得客户的理解、尊重和支持。 <span class="quo">&rdquo;</span></h1>
+								<h1 class="fh5co-lead"><span class="quo">&ldquo;</span>艾明坷科技是您最可信赖的合作伙伴 <span class="quo">&rdquo;</span></h1>
 							</div>
 						</div>
 					</div>

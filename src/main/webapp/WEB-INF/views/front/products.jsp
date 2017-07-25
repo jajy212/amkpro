@@ -52,9 +52,27 @@
 				         </c:if>  
 		                </a>
 		                <h3>
-		                    <a href="${path}/front/item?param=${article.id }">${article.title }</a>
+		                    <a href="${path}/front/item?param=${article.id }">
+		                    	<c:choose>
+					    			<c:when test="${langType eq 'en'}">
+					    				${article.titleEn }
+					    			</c:when>
+					    			<c:otherwise>
+					    				${article.title }
+					    			</c:otherwise>
+					    		</c:choose>
+		                    </a>
 		                </h3>
-		                <p>${article.description }</p>
+		                <p>
+			                <c:choose>
+				    			<c:when test="${langType eq 'en'}">
+				    				${article.descriptionEn }
+				    			</c:when>
+				    			<c:otherwise>
+				    				${article.description }
+				    			</c:otherwise>
+				    		</c:choose>
+		                </p>
 		            </div>
 	          </c:forEach>
 	        </div>

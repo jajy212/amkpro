@@ -1415,7 +1415,7 @@ pre code {
   margin-right: auto;
   margin-left: auto;
   padding-left: 20px;
-  padding-right: 20px; }
+  padding-right: 50px; }
 .container-fluid:before, .container-fluid:after {
   content: " ";
   display: table; }
@@ -5649,7 +5649,7 @@ pre {
 #fh5co-footer .fh5co-footer-widget.top-level {
   margin-top: 1px !important; }
 #fh5co-footer .fh5co-footer-widget .fh5co-footer-lead {
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 20px; }

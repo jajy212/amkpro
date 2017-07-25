@@ -88,6 +88,10 @@ public class ArticleService extends CrudService<ArticleDao, Article> {
 			article.getArticleData().setContent(StringEscapeUtils.unescapeHtml4(
 					article.getArticleData().getContent()));
 		}
+		if (article.getArticleData().getContentEn()!=null){
+			article.getArticleData().setContentEn(StringEscapeUtils.unescapeHtml4(
+					article.getArticleData().getContentEn()));
+		}
 		// 如果没有审核权限，则将当前内容改为待审核状态
 		if (!UserUtils.getSubject().isPermitted("cms:article:audit")){
 			article.setDelFlag(Article.DEL_FLAG_AUDIT);

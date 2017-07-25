@@ -1,11 +1,11 @@
 package com.thinkgem.jeesite.modules.cms.web;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 
 import com.thinkgem.jeesite.common.config.Global;
 import com.thinkgem.jeesite.common.persistence.Page;
@@ -26,8 +27,6 @@ import com.thinkgem.jeesite.modules.cms.entity.Category;
 import com.thinkgem.jeesite.modules.cms.service.ArticleDataService;
 import com.thinkgem.jeesite.modules.cms.service.ArticleService;
 import com.thinkgem.jeesite.modules.cms.service.CategoryService;
-import com.thinkgem.jeesite.modules.cms.service.FileTplService;
-import com.thinkgem.jeesite.modules.cms.service.SiteService;
 
 @Controller
 public class ManagerAction  extends BaseController{
@@ -38,10 +37,19 @@ public class ManagerAction  extends BaseController{
 	private ArticleDataService articleDataService;
 	@Autowired
 	private CategoryService categoryService;
-    @Autowired
-   	private FileTplService fileTplService;
-    @Autowired
-   	private SiteService siteService;
+    
+    private String getCookieLocale(HttpServletRequest request){
+    	
+    	String langType = "zh_CN";
+    	Cookie[] cookies = request.getCookies();
+		for(int i=0;i<cookies.length;i++){
+			if("locale".equals(cookies[i].getName())){
+				langType = cookies[i].getValue();
+				break;
+			}
+		}
+		return langType;
+    }
 
 	/**
 	 * 首页
@@ -49,7 +57,21 @@ public class ManagerAction  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("/front/index")
-	public String amkindex(ModelMap model,Article article ){
+	public String amkindex(ModelMap model,Article article,HttpServletRequest request, HttpServletResponse response, @RequestParam(value="locale", defaultValue="zh_CN") String langType ){
+		
+		if(langType.equals("en")){
+            Locale locale = new Locale("en","locale"); 
+            (new CookieLocaleResolver()).setLocale (request, response, locale);
+        }else{
+        	Locale locale = new Locale("zh", "CN","locale"); 
+            (new CookieLocaleResolver()).setLocale (request, response, locale);
+        }
+		 //从后台代码获取国际化信息
+       // RequestContext requestContext = new RequestContext(request);
+       // model.addAttribute("money", requestContext.getMessage("money"));
+       // model.addAttribute("date", requestContext.getMessage("date"));
+		
+		
 		List<Category> cateList = categoryService.findAmkCate();//查询目录
 		String id = "";
 		//匹配参数对应的id
@@ -61,6 +83,7 @@ public class ManagerAction  extends BaseController{
 		}
 		List<Article> list = articleService.findByCateId(id);
 		model.addAttribute("list",list);
+		model.put("langType", langType);
 		return "/front/index";
 	}
 	
@@ -70,7 +93,7 @@ public class ManagerAction  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("/front/products")
-	public String products(ModelMap model,@RequestParam(required=false) String param){
+	public String products(ModelMap model,@RequestParam(required=false) String param,HttpServletRequest request){
 		List<Category> cateList = categoryService.findAmkCate();//查询目录
 		String id = "";
 		//匹配参数对应的id
@@ -102,7 +125,7 @@ public class ManagerAction  extends BaseController{
 		model.put("article", allList);
 		//model.put("articleData", articleData);
 		model.put("menuName", menuName);
-		
+		model.put("langType", getCookieLocale(request));
 		return "/front/products";
 	}
 	
@@ -112,7 +135,7 @@ public class ManagerAction  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("/front/item")
-	public String item(ModelMap model,@RequestParam(required=false) String param){
+	public String item(ModelMap model,@RequestParam(required=false) String param,HttpServletRequest request){
 		System.out.println("article id is =="+param);
 		if(StringUtils.isNotBlank(param)){
 			Article article = articleService.get(param);
@@ -123,7 +146,7 @@ public class ManagerAction  extends BaseController{
 			}
 			model.addAttribute("articleData", articleData);
 		}
-		
+		model.put("langType", getCookieLocale(request));
 		return "/front/item";
 	}
 	
@@ -133,7 +156,7 @@ public class ManagerAction  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("/front/service")
-	public String service(ModelMap model){
+	public String service(ModelMap model,HttpServletRequest request){
 		return "/front/service";
 	}
 	
@@ -144,7 +167,7 @@ public class ManagerAction  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("/front/download")
-	public String download(ModelMap model){
+	public String download(ModelMap model,HttpServletRequest request){
 		List<Category> cateList = categoryService.findAmkCate();//查询目录
 		String id = "";
 		//匹配参数对应的id
@@ -156,7 +179,7 @@ public class ManagerAction  extends BaseController{
 		}
 		List<Article> list = articleService.findByCateId(id);
 		model.put("list", list);
-		
+		model.put("langType", getCookieLocale(request));
 		return "/front/download";
 	}
 	/**
@@ -183,7 +206,8 @@ public class ManagerAction  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("/front/faq")
-	public String faq(ModelMap model){
+	public String faq(ModelMap model,HttpServletRequest request){
+		model.put("langType", getCookieLocale(request));
 		return "/front/faq";
 	}
 
@@ -211,7 +235,7 @@ public class ManagerAction  extends BaseController{
 		
 		//List<Article> articleList = articleService.findByCateId(id);//查找同一类别下的文章
 		model.addAttribute("page", page);
-		
+		model.put("langType", getCookieLocale(request));
 		return "/front/news";
 	}
 	/**
@@ -220,7 +244,7 @@ public class ManagerAction  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("/front/detail")
-	public String newsdetail(ModelMap model,@RequestParam(required=false) String param){
+	public String newsdetail(ModelMap model,@RequestParam(required=false) String param,HttpServletRequest request){
 		System.out.println("article id is =="+param);
 		if(StringUtils.isNotBlank(param)){
 			Article article = articleService.get(param);
@@ -231,8 +255,7 @@ public class ManagerAction  extends BaseController{
 			}
 			model.addAttribute("articleData", articleData);
 		}
-		
-		
+		model.put("langType", getCookieLocale(request));
 		return "/front/newsdetail";
 	}
 	
@@ -242,9 +265,7 @@ public class ManagerAction  extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("/front/about")
-	public String about(ModelMap model){
-		//Article article = articleService.get("07518be2642d4a5588b7fe50ad272bea");
-		//ArticleData articleData = articleDataService.get("07518be2642d4a5588b7fe50ad272bea");
+	public String about(ModelMap model,HttpServletRequest request){
 		Article article = new Article();
 		List<Category> cateList = categoryService.findAmkCate();//查询目录
 		String id = "";
@@ -259,10 +280,9 @@ public class ManagerAction  extends BaseController{
 		if(articleList.size() > 0){
 			article = articleList.get(0);
 		}
-		//model.addAttribute("article", article);
 		model.put("article", article);
-		//model.put("articleData", articleData);
-		
+		model.put("articleData", articleDataService.get(article.getId()));
+		model.put("langType", getCookieLocale(request));
 		return "/front/about";
 	}
 	

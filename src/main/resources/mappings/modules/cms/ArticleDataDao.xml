@@ -5,6 +5,7 @@
 	<sql id="cmsArticleDataColumns">
 		a.id AS "id",
 		a.content AS "content",
+		a.contentEn AS "contentEn",
 		a.copyfrom AS "copyfrom",
 		a.relation AS "relation",
 		a.allow_comment AS "allow_comment"
@@ -25,12 +26,14 @@
 		INSERT INTO cms_article_data(
 			id,
 			content,
+			contentEn,
 			copyfrom,
 			relation,
 			allow_comment
 		) VALUES (
 			#{id},
 			#{content},
+			#{contentEn},
 			#{copyfrom},
 			#{relation},
 			#{allowComment}
@@ -40,6 +43,7 @@
 	<update id="update">
 		UPDATE cms_article_data SET 	
 			content = #{content},
+			contentEn = #{contentEn},
 			copyfrom = #{copyfrom},
 			relation = #{relation},
 			allow_comment = #{allowComment}

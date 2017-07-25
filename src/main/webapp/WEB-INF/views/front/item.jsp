@@ -76,8 +76,24 @@
             </div>
 
             <div class="col-md-6">
-                <h3 class="fontcolor">${article.title }</h3>
-                ${articleData.content }
+                <h3 class="fontcolor">
+                	<c:choose>
+			    			<c:when test="${langType eq 'en'}">
+			    				${article.titleEn }
+			    			</c:when>
+			    			<c:otherwise>
+			    				${article.title }
+			    			</c:otherwise>
+			    		</c:choose>
+			    </h3>
+			    	<c:choose>
+			    			<c:when test="${langType eq 'en'}">
+			    				${articleData.contentEn }
+			    			</c:when>
+			    			<c:otherwise>
+			    				${articleData.content }
+			    			</c:otherwise>
+			    		</c:choose>
                <!--   <p>APEX 巅峰系列是一款集智能化、高品质于一身的手套箱系统，丰富的报表资源让您对设备了如指掌，高效的远程诊断功能为您免去一切后顾之忧，巅峰系列产品完全可满足您对惰性气氛保护的严苛要求，为不同应用领域、不同术要求提供更多选择。</p>
                 <h3 class="fontcolor">产品型号</h3>
                 <ul>

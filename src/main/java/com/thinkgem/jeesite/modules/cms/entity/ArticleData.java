@@ -19,6 +19,7 @@ public class ArticleData extends DataEntity<ArticleData> {
 	private static final long serialVersionUID = 1L;
 	private String id;		// 编号
 	private String content;	// 内容
+	private String contentEn;	// 内容(英文)
 	private String copyfrom;// 来源
 	private String relation;// 相关文章
 	private String allowComment;// 是否允许评论
@@ -87,4 +88,11 @@ public class ArticleData extends DataEntity<ArticleData> {
 		this.article = article;
 	}
 
+	public String getContentEn() {
+		return contentEn;
+	}
+
+	public void setContentEn(String contentEn) {
+		this.contentEn = contentEn;
+	}
 }

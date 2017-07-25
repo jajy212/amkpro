@@ -36,12 +36,28 @@
         <!-- Projects Row -->
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-            	<h3> ${article.title }</h3>
+            	<h3> 
+            		<c:choose>
+		    			<c:when test="${langType eq 'en'}">
+		    				${article.titleEn }
+		    			</c:when>
+		    			<c:otherwise>
+		    				${article.title }
+		    			</c:otherwise>
+		    		</c:choose>
+            	</h3>
                 <hr>
                 <!-- Preview Image -->
                <!--   <img class="img-responsive" src="http://placehold.it/900x300" alt="">-->
                  <!-- Post Content -->
-                	${articleData.content }
+              	<c:choose>
+	    			<c:when test="${langType eq 'en'}">
+	    				${articleData.contentEn }
+	    			</c:when>
+	    			<c:otherwise>
+	    				${articleData.content }
+	    			</c:otherwise>
+	    		</c:choose>
                 <hr>
             </div>
         </div>

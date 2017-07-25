@@ -16,7 +16,7 @@
 				<div class="col-md-offset-1 col-md-5 col-sm-5">
 					<div class="fh5co-footer-widget top-level">
 						<h4 class="fh5co-footer-lead">艾明坷科技（北京）有限公司</h4>
-						<ul class="fh5co-list-check">
+						<ul class="">
 							<li>电&nbsp;&nbsp;话：010-8057-5437/8</li>
 							<li>传&nbsp;&nbsp;真：010-8053-7477</li>
 							<li>服务电话：400-080-3577</li>
