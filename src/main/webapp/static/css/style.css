@@ -153,6 +153,10 @@ td, th {
 	font-size:0;
 	overflow:hidden;
 }
+
+.img-portfolio {
+	    margin-bottom: 30px;
+}
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *, *:before, *:after {

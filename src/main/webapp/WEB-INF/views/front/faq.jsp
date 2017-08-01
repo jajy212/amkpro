@@ -42,127 +42,39 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel-group" id="accordion">
+                    <c:forEach items="${articleList}" var="article" varStatus="idx">
+                    
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1、问题问题问题问题问题问题问题问题问题问题问题？</a>
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse${idx.index }">
+                                <c:choose>
+					    			<c:when test="${langType eq 'en'}">
+					    				${article.titleEn }
+					    			</c:when>
+					    			<c:otherwise>
+					    				${article.title }
+					    			</c:otherwise>
+					    		</c:choose>
+                                </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true">
+                        <div id="collapse${idx.index }" class="panel-collapse collapse <c:if test="${idx.index == 0 }">in</c:if>">
                             <div class="panel-body">
 								<span class="glyphicon glyphicon-ok text-primary"></span>
-                                解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方。
-								案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案；<br/>
-								<span class="glyphicon glyphicon-ok text-primary"></span>解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案;解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案<br/>
-								<span class="glyphicon glyphicon-ok text-primary"></span>解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
+                               <c:choose>
+				    			<c:when test="${langType eq 'en'}">
+				    				${article.descriptionEn }
+				    			</c:when>
+				    			<c:otherwise>
+				    				${article.description }
+				    			</c:otherwise>
+				    		</c:choose>
                             </div>
                         </div>
                     </div>
                     <!-- /.panel -->
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2、问题问题问题问题问题问题问题问题问题问题问题列表列表列表列表列表列表？</a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3、问题问题问题问题问题问题问题问题问题问题问题列表列表列表列表？</a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-warning">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">4、问题问题问题问题问题问题问题问题问题问题问题列表列表？</a>
-                            </h4>
-                        </div>
-                        <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">5、问题问题问题问题问题问题问题问题问题问题问题列表列表？</a>
-                            </h4>
-                        </div>
-                        <div id="collapseFive" class="panel-collapse collapse">
-                            <div class="panel-body">
-                              解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">6、问题问题问题问题问题问题问题问题问题问题问题列表列表列表？</a>
-                            </h4>
-                        </div>
-                        <div id="collapseSix" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">7、问题问题问题问题问题问题问题问题问题问题问题列表列表？</a>
-                            </h4>
-                        </div>
-                        <div id="collapseSeven" class="panel-collapse collapse">
-                            <div class="panel-body">
-                               解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">8、问题问题问题问题问题问题问题问题问题问题问题列表列表？</a>
-                            </h4>
-                        </div>
-                        <div id="collapseEight" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">9、问题问题问题问题问题问题问题问题问题问题问题？</a>
-                            </h4>
-                        </div>
-                        <div id="collapseNine" class="panel-collapse collapse">
-                            <div class="panel-body">
-                               解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案解决方案
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
+            		</c:forEach>
                 </div>
                 <!-- /.panel-group -->
             </div>

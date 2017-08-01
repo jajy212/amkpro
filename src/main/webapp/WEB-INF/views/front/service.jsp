@@ -10,6 +10,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<%@ include file="include/meta.jsp"%>
+	
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -44,14 +45,15 @@
         <!-- Image Header -->
         <div class="row">
             <div class="col-lg-12">
-                <img class="img-responsive" src="${path}/static/img/1200300.png" alt="">
+                <img class="img-responsive" src="${path}/static/img/solution.jpg" alt="">
             </div>
         </div>
         <!-- /.row -->
+        
 
 	<!-- Service List -->
         <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-        <div class="row">
+         <div class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">产品应用领域</h2>
             </div>
@@ -170,6 +172,36 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- /.row -->
+        
+        
+            <!-- Portfolio Section -->
+        <div class="row">
+            <hr>
+            <c:forEach items="${articleList }" var="article">
+              <div class="col-md-6 col-sm-6">
+                    <div class="h3 text-center ">
+                    	<c:choose>
+			    			<c:when test="${langType eq 'en'}">
+			    				${article.titleEn }
+			    			</c:when>
+			    			<c:otherwise>
+			    				${article.title }
+			    			</c:otherwise>
+					    </c:choose>
+                    </div>
+                    <c:forEach var="img"  items="${article.imageArr  }" varStatus="status" begin="0" end="0">
+                    	<img class="img-responsive img-portfolio img-hover" src="${img }" alt="">
+				   </c:forEach>
+              </div>
+            </c:forEach>
+         <!--   
+            <div class="col-md-6 col-sm-6">
+                    <div class="h3 text-center ">真空镀膜机/ALD系统等联用</div>
+                    <img class="img-responsive img-portfolio img-hover" src="${path}/static/img/22.jpg" alt="">
+            </div>
+         -->
         </div>
         <!-- /.row -->
             
