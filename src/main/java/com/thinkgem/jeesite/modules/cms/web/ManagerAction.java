@@ -1,10 +1,13 @@
 package com.thinkgem.jeesite.modules.cms.web;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -74,13 +77,19 @@ public class ManagerAction  extends BaseController{
 		}
     	return cateId;
     }
+    @RequestMapping("/")
+    public void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    	//System.out.println("0000000000000");
+    	RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+    	rd.forward(request, response);
+    }
 
 	/**
 	 * 首页
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/index")
+	@RequestMapping("/index${urlSuffix}")
 	public String amkindex(ModelMap model,Article article,HttpServletRequest request, HttpServletResponse response, @RequestParam(value="locale", defaultValue="zh_CN") String langType ){
 		
 		if(langType.equals("en")){
@@ -107,7 +116,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/products")
+	@RequestMapping("/products${urlSuffix}")
 	public String products(ModelMap model,@RequestParam(required=false) String param,HttpServletRequest request){
 		
 		String cateId = getCateId(param);//查询目录id
@@ -140,7 +149,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/item")
+	@RequestMapping("/item${urlSuffix}")
 	public String item(ModelMap model,@RequestParam(required=false) String param,HttpServletRequest request){
 		if(StringUtils.isNotBlank(param)){
 			Article article = articleService.get(param);
@@ -157,7 +166,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/service")
+	@RequestMapping("/service${urlSuffix}")
 	public String service(ModelMap model,HttpServletRequest request){
 		String cateId = getCateId("service");//查询目录id
 		List<Article> articleList = articleService.findByCateId(cateId);//查找同一类别下的文章
@@ -172,7 +181,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/download")
+	@RequestMapping("/download${urlSuffix}")
 	public String download(ModelMap model,HttpServletRequest request){
 		String cateId = getCateId("download");//查询目录id
 		List<Article> list = articleService.findByCateId(cateId);
@@ -186,7 +195,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/downfile")
+	@RequestMapping("/downfile${urlSuffix}")
 	public void downfile(@RequestParam(required=false) String param,HttpServletRequest request, HttpServletResponse response) throws Exception{
 		if(!"".equals(param)){
 			String filepath = Global.getConfig("filepath");
@@ -205,7 +214,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/faq")
+	@RequestMapping("/faq${urlSuffix}")
 	public String faq(ModelMap model,HttpServletRequest request){
 		String cateId = getCateId("faq");//查询目录id
 		List<Article> articleList = articleService.findByCateId(cateId);//查找同一类别下的文章
@@ -220,7 +229,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/news")
+	@RequestMapping("/news${urlSuffix}")
 	public String news(Article article, HttpServletRequest request, HttpServletResponse response, ModelMap model){
 		Category category = new Category();
 		String cateId = getCateId("news");//查询目录id
@@ -239,7 +248,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/detail")
+	@RequestMapping("/detail${urlSuffix}")
 	public String newsdetail(ModelMap model,@RequestParam(required=false) String param,HttpServletRequest request){
 		if(StringUtils.isNotBlank(param)){
 			Article article = articleService.get(param);
@@ -259,7 +268,7 @@ public class ManagerAction  extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/front/about")
+	@RequestMapping("/about${urlSuffix}")
 	public String about(ModelMap model,HttpServletRequest request){
 		Article article = new Article();
 		String cateId = getCateId("about");//查询目录id

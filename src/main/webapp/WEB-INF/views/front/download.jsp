@@ -38,7 +38,7 @@
 		<c:forEach items="${list }" var="article">
 			<div class="row">
 	            <div class="col-md-push-3 col-md-6">
-	              	<a href="${path}/front/downfile?param=${ article.description}">${article.title }</a>
+	              	<a href="${path}/downfile.html?param=${ article.description}">${article.title }</a>
 					<p>发布日期：<fmt:formatDate value="${article.updateDate }" pattern="yyyy-MM-dd"/> &nbsp;&nbsp;&nbsp; 下载次数：${article.hits }</p>
 	            </div>
 	        </div>
@@ -48,14 +48,14 @@
 		<!--  
         <div class="row">
             <div class="col-md-push-3 col-md-6">
-                <a href="${path}/front/downfile?param=file1.docx">艾明坷产品手册 （手套箱、溶剂净化系统等）</a>
+                <a href="${path}/downfile.html?param=file1.docx">艾明坷产品手册 （手套箱、溶剂净化系统等）</a>
 				<p>发布日期：2017-01-01   下载次数：100</p>
             </div>
         </div>
 		<hr>
 		<div class="row">
             <div class="col-md-push-3 col-md-6">
-                <a href="${path}/front/downfile?param=file2.docx">溶剂参数表</a>
+                <a href="${path}/downfile.html?param=file2.docx">溶剂参数表</a>
 				<p>发布日期：2017-01-01   下载次数：100</p>	
 				<p></p>				
             </div>
@@ -63,7 +63,7 @@
 		<hr>
 		<div class="row">
             <div class="col-md-push-3 col-md-6">
-                <a href="${path}/front/downfile?param=file3.docx">有机实验室常用仪器与使用</a>
+                <a href="${path}/downfile.html?param=file3.docx">有机实验室常用仪器与使用</a>
 				<p>发布日期：2017-01-01   下载次数：100</p>		
 				<p></p>
             </div>
@@ -71,7 +71,7 @@
 		<hr>
 		<div class="row">
             <div class="col-md-push-3 col-md-6">
-                <a href="${path}/front/downfile?param=file4.docx">EX-SPS5-800溶剂净化系统</a>
+                <a href="${path}/downfile.html?param=file4.docx">EX-SPS5-800溶剂净化系统</a>
 				
 				<p>发布日期：2017-01-01   下载次数：100</p>
             </div>

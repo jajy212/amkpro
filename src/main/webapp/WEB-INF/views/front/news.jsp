@@ -40,7 +40,7 @@
        <!-- /.row -->
 		<div class="fh5co-spacer-sm"></div>
 		
-		<form id="searchForm"  action="${path}/front/news" method="post" >
+		<form id="searchForm"  action="${path}/news.html" method="post" >
 			<input id="pageNo" name="pageNo" type="hidden" value="${page.pageNo}"/>
 			<input id="pageSize" name="pageSize" type="hidden" value="${page.pageSize}"/>
 		</form>
@@ -53,13 +53,13 @@
                 <p><fmt:formatDate value="${article.updateDate }" pattern="yyyy-MM-dd"/></p>
             </div>
             <div class="col-md-4">
-                <a href="${path}/front/detail?param=${article.id}">
+                <a href="${path}/detail.html?param=${article.id}">
                     <img class="img-responsive img-hover" src="http://placehold.it/600x300" alt="">
                 </a>
             </div>
             <div class="col-md-7">
                 <h3>
-                    <a href="${path}/front/detail?param=${article.id}">
+                    <a href="${path}/detail.html?param=${article.id}">
                     	<c:choose>
 			    			<c:when test="${langType eq 'en'}">
 			    				${article.titleEn }

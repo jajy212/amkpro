@@ -30,13 +30,13 @@
 				<div class="col-md-offset-1 col-md-2 col-sm-2">
 				<div class="fh5co-footer-widget top-level">
 					<ul>
-						<li><a href="index" style="font-weight:normal">首页</a></li>
-						<li><a href="products?param=stx" style="font-weight:normal">产品中心</a></li>
-						<li><a href="service" style="font-weight:normal">解决方案</a></li>
-						<li><a href="faq" style="font-weight:normal">技术支持</a></li>
-						<li><a href="download" style="font-weight:normal">资料下载</a></li>
-						<li><a href="news" style="font-weight:normal">新闻动态</a></li>
-						<li><a href="about" style="font-weight:normal">关于我们</a></li>
+						<li><a href="index.html" style="font-weight:normal">首页</a></li>
+						<li><a href="products.html?param=stx" style="font-weight:normal">产品中心</a></li>
+						<li><a href="service.html" style="font-weight:normal">解决方案</a></li>
+						<li><a href="faq.html" style="font-weight:normal">技术支持</a></li>
+						<li><a href="download.html" style="font-weight:normal">资料下载</a></li>
+						<li><a href="news.html" style="font-weight:normal">新闻动态</a></li>
+						<li><a href="about.html" style="font-weight:normal">关于我们</a></li>
 					</ul>
 				</div>
 				</div>
@@ -66,4 +66,4 @@
 	<!-- Magnific Popup -->
 	<script src="${path}/static/js/jquery.magnific-popup.min.js"></script>
 	<!-- Main JS -->
-	<script src="${path}/static/js/main.js"></script>	
+	<script src="${path}/static/js/main.js"></script>		

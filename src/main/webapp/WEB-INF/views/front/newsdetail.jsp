@@ -26,7 +26,7 @@
                 <ol class="breadcrumb">
                     <li><a href="index.html">首页</a>
                     </li>
-					<li><a href="${path }/front/news">新闻动态</a></li>
+					<li><a href="${path }/news">新闻动态</a></li>
 					<li class="active">${article.title }</li>
                 </ol>
             </div>

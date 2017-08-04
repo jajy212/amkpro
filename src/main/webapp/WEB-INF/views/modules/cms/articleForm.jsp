@@ -109,7 +109,7 @@
 			<label class="control-label">正文:</label>
 			<div class="controls">
 				<form:textarea id="content" htmlEscape="true" path="articleData.content" rows="4" maxlength="200" class="input-xxlarge"/>
-				<sys:ckeditor replace="content" uploadPath="/cms/article" />
+				<sys:ckeditor replace="content" uploadPath="/data/wwwroot/101.200.57.227/userfiles/images" />
 			</div>
 		</div>
 		

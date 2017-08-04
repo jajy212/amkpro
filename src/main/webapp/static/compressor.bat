@@ -19,8 +19,6 @@ rem call compressor\compressor.bat jerichotab\css\jquery.jerichotab.css
 rem call compressor\compressor.bat jerichotab\js\jquery.jerichotab.js
 call compressor\compressor.bat treeTable\themes\vsStyle\treeTable.css
 call compressor\compressor.bat treeTable\jquery.treeTable.js
-call compressor\compressor.bat supcan\supcan.js
-call compressor\compressor.bat modules
 
 echo.
 echo Compressor Success

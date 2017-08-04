@@ -43,16 +43,8 @@
 	        <div class="row">
 	          <c:forEach var="article" items="${articleList}">
 		            <div class="col-md-6 img-portfolio">
-		           
-		                <a href="${path}/front/item?param=${article.id }">
-		                <c:if test="${article.imageArr != '' }">
-		                	<c:forEach var="img" begin="0" end="0" items="${article.imageArr  }">
-				           		<img class="img-responsive img-hover" src=${img } alt=""/>
-				           	</c:forEach>
-				         </c:if>  
-		                </a>
 		                <h3>
-		                    <a href="${path}/front/item?param=${article.id }">
+		                    <a href="${path}/item.html?param=${article.id }">
 		                    	<c:choose>
 					    			<c:when test="${langType eq 'en'}">
 					    				${article.titleEn }
@@ -73,6 +65,13 @@
 				    			</c:otherwise>
 				    		</c:choose>
 		                </p>
+		                <a href="${path}/item.html?param=${article.id }">
+			                <c:if test="${article.imageArr != '' }">
+			                	<c:forEach var="img" begin="0" end="0" items="${article.imageArr  }">
+					           		<img class="img-responsive img-hover" src=${img } alt=""/>
+					           	</c:forEach>
+					         </c:if>  
+		                </a>
 		            </div>
 	          </c:forEach>
 	        </div>

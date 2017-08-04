@@ -82,7 +82,7 @@
 							<div class="fh5co-feature-text">
 								<h3>超级净化手套箱</h3>
 								<p>主要应用：核电、防御等，医药半导体和手套等</p>
-								<p><a href="${path }/front/products?param=stx">更多>></a></p>
+								<p><a href="${path }/products?param=stx">更多>></a></p>
 							</div>
 						</div>
 						<div class="fh5co-feature no-border">
@@ -92,7 +92,7 @@
 							<div class="fh5co-feature-text">
 								<h3>溶剂净化系统</h3>
 								<p>桌面型溶剂净化系统，模块化设计，每组净化</p>
-								<p><a href="${path }/front/products?param=rj">更多>></a></p>
+								<p><a href="${path }/products?param=rj">更多>></a></p>
 							</div>
 						</div>
 					</div>
@@ -104,7 +104,7 @@
 							<div class="fh5co-feature-text">
 								<h3>气体净化系统</h3>
 								<p>主要应用：核电、防御等，医药半导体和手套等</p>
-								<p><a href="${path }/front/products?param=qt">更多>></a></p>
+								<p><a href="${path }/products?param=qt">更多>></a></p>
 							</div>
 						</div>
 						<div class="fh5co-feature no-border">
@@ -114,7 +114,7 @@
 							<div class="fh5co-feature-text">
 								<h3>高纯供气系统</h3>
 								<p>桌面型溶剂净化系统，模块化设计，每组净化</p>
-								<p><a href="${path }/front/products?param=gq">更多>></a></p>
+								<p><a href="${path }/products?param=gq">更多>></a></p>
 							</div>
 						</div>
 					</div>
@@ -126,7 +126,7 @@
 							<div class="fh5co-feature-text">
 								<h3>真空镀膜系统</h3>
 								<p>应用于实验室研究级别，晶片或粉末腔体可供选择</p>
-								<p><a href="${path }/front/products?param=zk">更多>></a></p>
+								<p><a href="${path }/products?param=zk">更多>></a></p>
 							</div>
 						</div>
 						<div class="fh5co-feature no-border">
@@ -136,7 +136,7 @@
 							<div class="fh5co-feature-text">
 								<h3>高温炉</h3>
 								<p>应用于实验室研究级别，晶片或粉末腔体可供选择应用于实验室研究级别</p>
-								<p><a href="${path }/front/products?param=gwl">更多>></a></p>
+								<p><a href="${path }/products?param=gwl">更多>></a></p>
 							</div>
 						</div>
 					</div>
@@ -173,7 +173,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
 <%@ include file="include/footer.jsp"%>	
 	

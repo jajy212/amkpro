@@ -44,7 +44,7 @@
                 <div class="panel-group" id="accordion">
                     <c:forEach items="${articleList}" var="article" varStatus="idx">
                     
-                    <div class="panel panel-primary">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse${idx.index }">
